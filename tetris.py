@@ -190,3 +190,20 @@ def clear_rows(grid, locked):
                 locked[newKey] = locked.pop(key)
 
     return inc
+
+# Función para dibujar el próximo bloque
+def draw_next_shape(shape, screen):
+    font = pygame.font.SysFont('arial', 30)
+    label = font.render('Next Shape', 1, WHITE)
+
+    sx = TOP_LEFT_X + PLAY_WIDTH + 50
+    sy = TOP_LEFT_Y + PLAY_HEIGHT/2 - 100
+    format = shape.shape[shape.rotation % len(shape.shape)]
+
+    for i, line in enumerate(format):
+        row = list(line)
+        for j, column in enumerate(row):
+            if column == '0':
+                pygame.draw.rect(screen, shape.color, (sx + j*BLOCK_SIZE, sy + i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 0)
+
+    screen.blit(label, (sx + 10, sy - 30))
