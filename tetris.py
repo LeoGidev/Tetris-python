@@ -134,3 +134,7 @@ class Piece:
         self.shape = shape
         self.color = SHAPES_COLORS[SHAPES.index(shape)]
         self.rotation = 0
+
+# Función para crear una pieza aleatoria
+def create_piece():
+    return Piece(5, 0, random.choice(SHAPES))
