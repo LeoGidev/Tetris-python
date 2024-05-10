@@ -265,11 +265,13 @@ def main():
         # Movimiento automático hacia abajo
         if fall_time/1000 >= fall_speed:
             fall_time = 0
+            # Intenta mover la pieza hacia abajo
             current_piece.y += 1
-            if not(valid_space(current_piece, grid, locked)) and current_piece.y > 0:
-
+            # Si hay colisión, retrocede y bloquea la pieza
+            if not(valid_space(current_piece, grid, locked)):
                 current_piece.y -= 1
                 change_piece = True
+
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
