@@ -123,3 +123,5 @@ T = [['.....',
       '.00..',
       '..0..',
       '.....']]
+SHAPES = [S, Z, I, O, J, L, T]
+SHAPES_COLORS = [GREEN, RED, CYAN, YELLOW, BLUE, ORANGE, PURPLE]
