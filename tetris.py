@@ -168,7 +168,13 @@ def valid_space(piece, grid, locked):
         if pos not in accepted_positions:
             if pos[1] > -1:
                 return False
+            # Si la posición está fuera del tablero en la dirección hacia abajo
+            # y la pieza intenta moverse más hacia abajo, se considera bloqueada
+            elif pos[1] > 19:
+                return False
     return True
+
+
 
 
 # Función para limpiar las líneas completadas
@@ -262,15 +268,16 @@ def main():
             fall_speed -= 0.005
             lines = 0
 
-        # Movimiento automático hacia abajo
+       # Movimiento automático hacia abajo
         if fall_time/1000 >= fall_speed:
             fall_time = 0
             # Intenta mover la pieza hacia abajo
             current_piece.y += 1
-            # Si hay colisión, retrocede y bloquea la pieza
+            # Verifica si la pieza ha llegado al suelo
             if not(valid_space(current_piece, grid, locked)):
                 current_piece.y -= 1
                 change_piece = True
+
 
 
         for event in pygame.event.get():
