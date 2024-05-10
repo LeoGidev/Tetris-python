@@ -138,3 +138,19 @@ class Piece:
 # Función para crear una pieza aleatoria
 def create_piece():
     return Piece(5, 0, random.choice(SHAPES))
+
+# Función para convertir la posición de la matriz en posición en pantalla
+def convert_shape_format(piece):
+    positions = []
+    format = piece.shape[piece.rotation % len(piece.shape)]
+
+    for i, line in enumerate(format):
+        row = list(line)
+        for j, column in enumerate(row):
+            if column == '0':
+                positions.append((piece.x + j, piece.y + i))
+
+    for i, pos in enumerate(positions):
+        positions[i] = (pos[0] - 2, pos[1] - 4)
+
+    return positions
