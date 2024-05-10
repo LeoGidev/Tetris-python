@@ -207,3 +207,26 @@ def draw_next_shape(shape, screen):
                 pygame.draw.rect(screen, shape.color, (sx + j*BLOCK_SIZE, sy + i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 0)
 
     screen.blit(label, (sx + 10, sy - 30))
+
+
+# Función para dibujar el borde del tablero
+def draw_grid(screen, grid):
+    for i in range(len(grid)):
+        pygame.draw.line(screen, GRAY, (TOP_LEFT_X, TOP_LEFT_Y + i*BLOCK_SIZE), (TOP_LEFT_X + PLAY_WIDTH*BLOCK_SIZE, TOP_LEFT_Y + i*BLOCK_SIZE))
+        for j in range(len(grid[i])):
+            pygame.draw.line(screen, GRAY, (TOP_LEFT_X + j*BLOCK_SIZE, TOP_LEFT_Y), (TOP_LEFT_X + j*BLOCK_SIZE, TOP_LEFT_Y + PLAY_HEIGHT*BLOCK_SIZE))
+
+# Función para dibujar el tablero
+def draw_window(screen, grid):
+    screen.fill(BLACK)
+    font = pygame.font.SysFont('arial', 60)
+    label = font.render('Tetris', 1, WHITE)
+    screen.blit(label, (TOP_LEFT_X + PLAY_WIDTH/2 - (label.get_width()/2), 30))
+
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            pygame.draw.rect(screen, grid[i][j], (TOP_LEFT_X + j*BLOCK_SIZE, TOP_LEFT_Y + i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 0)
+
+    pygame.draw.rect(screen, RED, (TOP_LEFT_X, TOP_LEFT_Y, PLAY_WIDTH * BLOCK_SIZE, PLAY_HEIGHT * BLOCK_SIZE), 5)
+
+    draw_grid(screen, grid)
