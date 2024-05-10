@@ -158,6 +158,7 @@ def convert_shape_format(piece):
     return positions
 
 # Función para verificar colisión de una pieza
+# Función para verificar colisión de una pieza
 def valid_space(piece, grid, locked):
     accepted_positions = [[(j, i) for j in range(10) if grid[i][j] == BLACK] for i in range(20)]
     accepted_positions = [j for sub in accepted_positions for j in sub]
@@ -173,9 +174,6 @@ def valid_space(piece, grid, locked):
             elif pos[1] > 19:
                 return False
     return True
-
-
-
 
 # Función para limpiar las líneas completadas
 def clear_rows(grid, locked):
@@ -199,6 +197,7 @@ def clear_rows(grid, locked):
                 locked[newKey] = locked.pop(key)
 
     return inc
+
 
 # Función para dibujar el próximo bloque
 def draw_next_shape(shape, screen):
