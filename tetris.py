@@ -125,3 +125,12 @@ T = [['.....',
       '.....']]
 SHAPES = [S, Z, I, O, J, L, T]
 SHAPES_COLORS = [GREEN, RED, CYAN, YELLOW, BLUE, ORANGE, PURPLE]
+
+# Clase para las piezas
+class Piece:
+    def __init__(self, x, y, shape):
+        self.x = x
+        self.y = y
+        self.shape = shape
+        self.color = SHAPES_COLORS[SHAPES.index(shape)]
+        self.rotation = 0
