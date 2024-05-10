@@ -167,3 +167,17 @@ def valid_space(piece, grid):
             if pos[1] > -1:
                 return False
     return True
+
+# Función para limpiar las líneas completadas
+def clear_rows(grid, locked):
+    inc = 0
+    for i in range(len(grid)-1, -1, -1):
+        row = grid[i]
+        if BLACK not in row:
+            inc += 1
+            ind = i
+            for j in range(len(row)):
+                try:
+                    del locked[(j, i)]
+                except:
+                    continue
