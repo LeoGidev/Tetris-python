@@ -279,22 +279,26 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     current_piece.x -= 1
-                    if not(valid_space(current_piece, grid)):
+                    if not(valid_space(current_piece, grid, locked)):
+
                         current_piece.x += 1
 
                 if event.key == pygame.K_RIGHT:
                     current_piece.x += 1
-                    if not(valid_space(current_piece, grid)):
+                    if not(valid_space(current_piece, grid, locked)):
+
                         current_piece.x -= 1
 
                 if event.key == pygame.K_DOWN:
                     current_piece.y += 1
-                    if not(valid_space(current_piece, grid)):
+                    if not(valid_space(current_piece, grid, locked)):
+
                         current_piece.y -= 1
 
                 if event.key == pygame.K_UP:
                     current_piece.rotation += 1
-                    if not(valid_space(current_piece, grid)):
+                    if not(valid_space(current_piece, grid, locked)):
+
                         current_piece.rotation -= 1
 
         shape_pos = convert_shape_format(current_piece)
