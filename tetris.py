@@ -159,11 +159,14 @@ def convert_shape_format(piece):
 
 # Función para verificar colisión de una pieza
 def valid_space(piece, grid, locked):
+    accepted_positions = [[(j, i) for j in range(10) if grid[i][j] == BLACK] for i in range(20)]
+    accepted_positions = [j for sub in accepted_positions for j in sub]
+
     formatted = convert_shape_format(piece)
 
     for pos in formatted:
-        if pos[1] > -1:
-            if pos in locked:
+        if pos not in accepted_positions:
+            if pos[1] > -1:
                 return False
     return True
 
@@ -236,7 +239,7 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption('Tetris')
 
-    locked_positions = {}
+    locked = {} 
     grid = [[BLACK for _ in range(PLAY_WIDTH)] for _ in range(PLAY_HEIGHT)]
 
     change_piece = False
@@ -263,7 +266,8 @@ def main():
         if fall_time/1000 >= fall_speed:
             fall_time = 0
             current_piece.y += 1
-            if not(valid_space(current_piece, grid)) and current_piece.y > 0:
+            if not(valid_space(current_piece, grid, locked)) and current_piece.y > 0:
+
                 current_piece.y -= 1
                 change_piece = True
 
@@ -303,12 +307,12 @@ def main():
         if change_piece:
             for pos in shape_pos:
                 p = (pos[0], pos[1])
-                locked_positions[p] = current_piece.color
+                locked[p] = current_piece.color
             current_piece = next_piece
             next_piece = create_piece()
             change_piece = False
-            score += clear_rows(grid, locked_positions)
-            lines += clear_rows(grid, locked_positions)
+            score += clear_rows(grid, locked)
+            lines += clear_rows(grid, locked)
 
         draw_window(screen, grid)
         draw_next_shape(next_piece, screen)
