@@ -325,7 +325,7 @@ def main():
             #next_piece = create_piece()
             #change_piece = False
             #score += clear_rows(grid, locked)
-            lines += clear_rows(grid, locked)
+            #lines += clear_rows(grid, locked)
 
         draw_window(screen, grid)
         draw_next_shape(next_piece, screen)
