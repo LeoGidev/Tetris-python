@@ -321,7 +321,7 @@ def main():
             for pos in shape_pos:
                 p = (pos[0], pos[1])
                 locked[p] = current_piece.color
-            current_piece = next_piece
+            #current_piece = next_piece
             next_piece = create_piece()
             change_piece = False
             score += clear_rows(grid, locked)
