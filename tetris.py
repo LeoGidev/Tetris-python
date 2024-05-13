@@ -164,6 +164,7 @@ def valid_space(piece, grid, locked):
     accepted_positions = [j for sub in accepted_positions for j in sub]
 
     formatted = convert_shape_format(piece)
+    print(formatted)
 
     for pos in formatted:
         if pos not in accepted_positions:
