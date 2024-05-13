@@ -164,11 +164,12 @@ def valid_space(piece, grid, locked):
     accepted_positions = [j for sub in accepted_positions for j in sub]
 
     formatted = convert_shape_format(piece)
+    locked_positions = [(pos[0], pos[1]) for pos in locked.keys()]
     print(formatted)
 
     for pos in formatted:
         if pos not in accepted_positions:
-            if pos in locked:  # Verificar si la posición está bloqueada
+            if pos in locked_positions:  # Verificar si la posición está bloqueada
                 return False
             elif pos[1] > -1:
                 return False
