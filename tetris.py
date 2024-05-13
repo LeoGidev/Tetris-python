@@ -324,7 +324,7 @@ def main():
             #current_piece = next_piece
             #next_piece = create_piece()
             #change_piece = False
-            score += clear_rows(grid, locked)
+            #score += clear_rows(grid, locked)
             lines += clear_rows(grid, locked)
 
         draw_window(screen, grid)
