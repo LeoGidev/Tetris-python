@@ -276,7 +276,7 @@ def main():
             # Verifica si la pieza ha llegado al suelo
             if not(valid_space(current_piece, grid, locked)):
                 current_piece.y -= 1
-                change_piece = False
+                change_piece = True
 
 
 
