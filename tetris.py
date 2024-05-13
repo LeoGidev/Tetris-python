@@ -167,6 +167,7 @@ def valid_space(piece, grid, locked):
     locked_positions = [(pos[0], pos[1]) for pos in locked.keys()]
     print("loked_position######################################")
     print(locked_positions)
+    print("")
     print("formatted:////////////////////////////////////////")
     print(formatted)
 
