@@ -330,7 +330,7 @@ def main():
                 locked[p] = current_piece.color
                 print("-------------------")
                 print(locked)
-            current_piece  = create_piece()
+            #current_piece  = create_piece()
             change_piece = False
             #score += clear_rows(grid, locked)
             #6lines += clear_rows(grid, locked)
