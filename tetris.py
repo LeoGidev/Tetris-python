@@ -168,7 +168,9 @@ def valid_space(piece, grid, locked):
 
     for pos in formatted:
         if pos not in accepted_positions:
-            if pos[1] > -1:
+            if pos in locked:  # Verificar si la posición está bloqueada
+                return False
+            elif pos[1] > -1:
                 return False
             # Si la posición está fuera del tablero en la dirección hacia abajo
             # y la pieza intenta moverse más hacia abajo, se considera bloqueada
@@ -321,6 +323,8 @@ def main():
             for pos in shape_pos:
                 p = (pos[0], pos[1])
                 locked[p] = current_piece.color
+                print("-------------------")
+                print(locked)
             current_piece  = create_piece()
             change_piece = False
             #score += clear_rows(grid, locked)
