@@ -284,6 +284,10 @@ def main():
             # Verifica si la pieza ha llegado al suelo
             if not(valid_space(current_piece, grid, locked)):
                 current_piece.y -= 1
+                for pos in shape_pos:
+                    p = (pos[0], pos[1])
+                    locked[p] = current_piece.color
+                print(current_piece.color)
                 change_piece = True
 
 
@@ -326,13 +330,7 @@ def main():
                 grid[y][x] = current_piece.color
 
         if change_piece:
-            for pos in shape_pos:
-                p = (pos[0], pos[1])
-                locked[p] = current_piece.color
-                print(current_piece.color)
-                #print("-------------------")
-                #print(locked)
-            current_piece  = next_piece
+            current_piece  = create_piece
             change_piece = False
             #score += clear_rows(grid, locked)
             #6lines += clear_rows(grid, locked)
