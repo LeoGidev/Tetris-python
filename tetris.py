@@ -165,11 +165,7 @@ def valid_space(piece, grid, locked):
 
     formatted = convert_shape_format(piece)
     locked_positions = [(pos[0], pos[1]) for pos in locked.keys()]
-    #print("loked_position######################################")
-    #print(locked_positions)
-    #print("")
-    #print("formatted:////////////////////////////////////////")
-    #print(formatted)
+   
 
     for pos in formatted:
         if pos in locked_positions:  # Verificar si la posición está bloqueada
@@ -245,7 +241,7 @@ def draw_window(screen, grid):
 
     pygame.draw.rect(screen, RED, (TOP_LEFT_X, TOP_LEFT_Y, PLAY_WIDTH * BLOCK_SIZE, PLAY_HEIGHT * BLOCK_SIZE), 5)
 
-    #draw_grid(screen, grid)
+    draw_grid(screen, grid)
 
 # Función principal del juego
 def main():
@@ -287,8 +283,8 @@ def main():
                 for pos in shape_pos:
                     p = (pos[0], pos[1])
                     locked[p] = current_piece.color
-                    pygame.draw.rect(screen, current_piece.color, (pos[0], pos[1], BLOCK_SIZE, BLOCK_SIZE), 1)
-                print(current_piece.color)
+                    pygame.draw.rect(screen, (255,255,255), (pos[0], pos[1], 100, 100), 8)
+                    print("dibujado en:", pos[0], pos[1])
                 change_piece = True
 
 
