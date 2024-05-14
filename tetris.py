@@ -221,7 +221,7 @@ def draw_next_shape(shape, screen):
         row = list(line)
         for j, column in enumerate(row):
             if column == '0':
-                pygame.draw.rect(screen, shape.color, (sx + j*BLOCK_SIZE, sy + i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 0)
+                pygame.draw.rect(screen, shape.color, (sx + j*BLOCK_SIZE, sy + i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 1)
 
     screen.blit(label, (sx + 10, sy - 30))
 
@@ -287,6 +287,7 @@ def main():
                 for pos in shape_pos:
                     p = (pos[0], pos[1])
                     locked[p] = current_piece.color
+                    pygame.draw.rect(screen, current_piece.color, (pos[0], pos[1], BLOCK_SIZE, BLOCK_SIZE), 1)
                 print(current_piece.color)
                 change_piece = True
 
