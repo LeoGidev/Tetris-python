@@ -330,7 +330,7 @@ def main():
                 grid[y][x] = current_piece.color
 
         if change_piece:
-            current_piece  = create_piece
+            current_piece  = next_piece
             change_piece = False
             #score += clear_rows(grid, locked)
             #6lines += clear_rows(grid, locked)
