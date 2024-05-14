@@ -165,11 +165,11 @@ def valid_space(piece, grid, locked):
 
     formatted = convert_shape_format(piece)
     locked_positions = [(pos[0], pos[1]) for pos in locked.keys()]
-    print("loked_position######################################")
-    print(locked_positions)
-    print("")
-    print("formatted:////////////////////////////////////////")
-    print(formatted)
+    #print("loked_position######################################")
+    #print(locked_positions)
+    #print("")
+    #print("formatted:////////////////////////////////////////")
+    #print(formatted)
 
     for pos in formatted:
         if pos in locked_positions:  # Verificar si la posición está bloqueada
@@ -329,9 +329,10 @@ def main():
             for pos in shape_pos:
                 p = (pos[0], pos[1])
                 locked[p] = current_piece.color
-                print("-------------------")
-                print(locked)
-            current_piece  = create_piece()
+                print(current_piece.color)
+                #print("-------------------")
+                #print(locked)
+            current_piece  = next_piece
             change_piece = False
             #score += clear_rows(grid, locked)
             #6lines += clear_rows(grid, locked)
