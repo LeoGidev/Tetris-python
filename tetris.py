@@ -263,6 +263,7 @@ def main():
     lines = 0
 
     while run:
+        
         grid = [[BLACK for _ in range(PLAY_WIDTH)] for _ in range(PLAY_HEIGHT)]
         fall_time += clock.get_rawtime()
         clock.tick()
@@ -327,6 +328,7 @@ def main():
                 grid[y][x] = current_piece.color
 
         if change_piece:
+            next_piece = create_piece()
             current_piece  = next_piece
             change_piece = False
             #score += clear_rows(grid, locked)
