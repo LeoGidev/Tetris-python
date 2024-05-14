@@ -245,7 +245,7 @@ def draw_window(screen, grid):
 
     pygame.draw.rect(screen, RED, (TOP_LEFT_X, TOP_LEFT_Y, PLAY_WIDTH * BLOCK_SIZE, PLAY_HEIGHT * BLOCK_SIZE), 5)
 
-    draw_grid(screen, grid)
+    #draw_grid(screen, grid)
 
 # Función principal del juego
 def main():
