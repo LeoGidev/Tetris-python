@@ -269,7 +269,7 @@ def main():
         
         
       
-        
+       #pone en color negro todos los blques excepto los que estan bloqueados 
         for y in range(PLAY_HEIGHT):
             for x in range(PLAY_WIDTH):
                 if (x, y) not in locked:
