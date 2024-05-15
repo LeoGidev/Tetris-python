@@ -237,6 +237,7 @@ def draw_window(screen, grid):
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
+            print("se redibuja grilla")
             pygame.draw.rect(screen, grid[i][j], (TOP_LEFT_X + j*BLOCK_SIZE, TOP_LEFT_Y + i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE), 0)
 
     pygame.draw.rect(screen, RED, (TOP_LEFT_X, TOP_LEFT_Y, PLAY_WIDTH * BLOCK_SIZE, PLAY_HEIGHT * BLOCK_SIZE), 5)
@@ -288,6 +289,7 @@ def main():
                     locked[p] = current_piece.color
                     # Dibuja la pieza bloqueada en su nueva posición
                     pygame.draw.rect(screen, (255, 255, 255), (pos[0] * BLOCK_SIZE + TOP_LEFT_X, pos[1] * BLOCK_SIZE + TOP_LEFT_Y, BLOCK_SIZE, BLOCK_SIZE), 1)
+                    print("X:",pos[0] * BLOCK_SIZE + TOP_LEFT_X,  "y:", pos[1] * BLOCK_SIZE + TOP_LEFT_Y)
                 change_piece = True
 
 
