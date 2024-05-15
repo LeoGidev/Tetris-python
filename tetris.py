@@ -269,6 +269,7 @@ def main():
 
     while run:
         
+        
         #print("grid:",grid[19][9])
        # print("")
         #print("__________________________________")
@@ -303,8 +304,9 @@ def main():
                     print(grid[pos[1]])
                     a.append(pos[1])
                     b.append(pos[0])
-                    n=n+1
+                    
                     print("A:",a[n])
+                    n=n+1
                     
                     print("")
                 change_piece = True
@@ -356,11 +358,13 @@ def main():
             #score += clear_rows(grid, locked)
             #6lines += clear_rows(grid, locked)
 
+        if a:
+            print(a[0])
 
-        #print(grid[b[0]])
-        #print(grid[b[1]])
-        #print(grid[b[2]])
-        #print(grid[b[3]])
+        #print(grid[19])
+        #print(grid[a[1]])
+        #print(grid[a[2]])
+        #print(grid[a[3]])
         draw_window(screen, grid)
         draw_next_shape(next_piece, screen)
         pygame.display.update()
