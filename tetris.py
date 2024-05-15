@@ -261,7 +261,9 @@ def main():
     fall_speed = 0.27
     score = 0
     lines = 0
-    a=0
+    a=[]
+    b=[]
+    n=0
 
     
 
@@ -299,7 +301,9 @@ def main():
                     # Dibuja la pieza bloqueada en su nueva posición
                     grid[pos[1]][pos[0]]=current_piece.color
                     print(grid[pos[1]])
-                    a=a+1
+                    a[n]=pos[1]
+                    b[n]=pos[0]
+                    n=n+1
                     
                     print("")
                 change_piece = True
