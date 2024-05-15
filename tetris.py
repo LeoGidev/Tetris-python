@@ -261,8 +261,8 @@ def main():
     fall_speed = 0.27
     score = 0
     lines = 0
-    a=[]
-    b=[]
+    a=[20]
+    b=[10]
     n=0
 
     
