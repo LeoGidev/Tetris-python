@@ -262,6 +262,8 @@ def main():
     score = 0
     lines = 0
 
+    print(grid)
+
     while run:
         
         grid = [[BLACK for _ in range(PLAY_WIDTH)] for _ in range(PLAY_HEIGHT)]
@@ -286,7 +288,7 @@ def main():
                 for pos in shape_pos:
                     p = (pos[0], pos[1])
                     locked[p] = current_piece.color
-                    print("pos0=", pos[0], "pos1=", pos[1])
+                    #print("pos0=", pos[0], "pos1=", pos[1])
                     # Dibuja la pieza bloqueada en su nueva posición
                     #grid[pos[0]][pos[1]]=current_piece.color
                     #pygame.draw.rect(screen, (255, 255, 255), (pos[0] * BLOCK_SIZE + TOP_LEFT_X, pos[1] * BLOCK_SIZE + TOP_LEFT_Y, BLOCK_SIZE, BLOCK_SIZE), 1)
