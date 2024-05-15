@@ -287,7 +287,8 @@ def main():
                     p = (pos[0], pos[1])
                     locked[p] = current_piece.color
                     # Dibuja la pieza bloqueada en su nueva posición
-                    pygame.draw.rect(screen, (255, 255, 255), (pos[0] * BLOCK_SIZE + TOP_LEFT_X, pos[1] * BLOCK_SIZE + TOP_LEFT_Y, BLOCK_SIZE, BLOCK_SIZE), 1)
+                    grid[pos[0]][pos[1]]=current_piece.color
+                    #pygame.draw.rect(screen, (255, 255, 255), (pos[0] * BLOCK_SIZE + TOP_LEFT_X, pos[1] * BLOCK_SIZE + TOP_LEFT_Y, BLOCK_SIZE, BLOCK_SIZE), 1)
                     print("X:",pos[0] * BLOCK_SIZE + TOP_LEFT_X,  "y:", pos[1] * BLOCK_SIZE + TOP_LEFT_Y)
                     print("")
                 change_piece = True
