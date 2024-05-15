@@ -6,7 +6,7 @@ SCREEN_WIDTH = 300
 SCREEN_HEIGHT = 600
 BLOCK_SIZE = 30
 PLAY_WIDTH = 10
-PLAY_HEIGHT = 40
+PLAY_HEIGHT = 20
 TOP_LEFT_X = (SCREEN_WIDTH - PLAY_WIDTH * BLOCK_SIZE) // 2
 TOP_LEFT_Y = SCREEN_HEIGHT - PLAY_HEIGHT * BLOCK_SIZE
 
@@ -281,13 +281,15 @@ def main():
             # Verifica si la pieza ha llegado al suelo
             if not(valid_space(current_piece, grid, locked)):
                 current_piece.y -= 1
+                # Ajusta la posición de shape_pos
                 shape_pos = convert_shape_format(current_piece)
                 for pos in shape_pos:
                     p = (pos[0], pos[1])
                     locked[p] = current_piece.color
-                    pygame.draw.rect(screen, (255,255,255), (pos[0], pos[1], 100, 100), 8)
-                    print("dibujado en:", pos[0], pos[1])
+                    # Dibuja la pieza bloqueada en su nueva posición
+                    pygame.draw.rect(screen, (255, 255, 255), (pos[0] * BLOCK_SIZE + TOP_LEFT_X, pos[1] * BLOCK_SIZE + TOP_LEFT_Y, BLOCK_SIZE, BLOCK_SIZE), 1)
                 change_piece = True
+
 
 
 
