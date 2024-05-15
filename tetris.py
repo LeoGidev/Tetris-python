@@ -261,11 +261,13 @@ def main():
     fall_speed = 0.27
     score = 0
     lines = 0
+    a=0
 
     
 
     while run:
-        print("grid:",grid)
+        
+        print("grid:",grid[0])
         print("")
         print("__________________________________")
         
