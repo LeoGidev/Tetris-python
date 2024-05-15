@@ -356,10 +356,10 @@ def main():
             #6lines += clear_rows(grid, locked)
 
 
-        print(grid[a[0]])
-        print(grid[a[1]])
-        print(grid[a[2]])
-        print(grid[a[3]])
+        #print(grid[a[0]])
+        #print(grid[a[1]])
+        #print(grid[a[2]])
+        #print(grid[a[3]])
         draw_window(screen, grid)
         draw_next_shape(next_piece, screen)
         pygame.display.update()
