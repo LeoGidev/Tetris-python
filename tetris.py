@@ -288,14 +288,18 @@ def main():
             # Verifica si la pieza ha llegado al suelo
             if not(valid_space(current_piece, grid, locked)):
                 current_piece.y -= 1
+                a=0
                 # Ajusta la posición de shape_pos
                 shape_pos = convert_shape_format(current_piece)
                 for pos in shape_pos:
+                    
                     p = (pos[0], pos[1])
                     locked[p] = current_piece.color
                     print("pos0=", pos[0], "pos1=", pos[1])
                     # Dibuja la pieza bloqueada en su nueva posición
                     grid[pos[1]][pos[0]]=current_piece.color
+                    print(grid[a])
+                    a=a+1
                     
                     print("")
                 change_piece = True
