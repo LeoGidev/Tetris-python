@@ -301,10 +301,10 @@ def main():
                     # Dibuja la pieza bloqueada en su nueva posición
                     grid[pos[1]][pos[0]]=current_piece.color
                     print(grid[pos[1]])
-                    a.append=pos[1]
-                    b.append=pos[0]
+                    a.append(pos[1])
+                    b.append(pos[0])
                     n=n+1
-                    print("A:",a[0])
+                    print("A:",a[n])
                     
                     print("")
                 change_piece = True
