@@ -147,7 +147,7 @@ Q = [['.....',
       '.....']]
 
 SHAPES = [S, Z, I, O, J, L, T, Q]
-SHAPES_COLORS = [GREEN, RED, CYAN, YELLOW, BLUE, ORANGE, PURPLE]
+SHAPES_COLORS = [GREEN, RED, CYAN, YELLOW, BLUE, ORANGE, PURPLE, ORANGE]
 
 # Clase para las piezas
 class Piece:
