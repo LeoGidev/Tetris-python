@@ -6,7 +6,7 @@ SCREEN_WIDTH = 300
 SCREEN_HEIGHT = 600
 BLOCK_SIZE = 30
 PLAY_WIDTH = 10
-PLAY_HEIGHT = 20
+PLAY_HEIGHT = 40
 TOP_LEFT_X = (SCREEN_WIDTH - PLAY_WIDTH * BLOCK_SIZE) // 2
 TOP_LEFT_Y = SCREEN_HEIGHT - PLAY_HEIGHT * BLOCK_SIZE
 
@@ -281,6 +281,7 @@ def main():
             # Verifica si la pieza ha llegado al suelo
             if not(valid_space(current_piece, grid, locked)):
                 current_piece.y -= 1
+                shape_pos = convert_shape_format(current_piece)
                 for pos in shape_pos:
                     p = (pos[0], pos[1])
                     locked[p] = current_piece.color
