@@ -262,9 +262,12 @@ def main():
     score = 0
     lines = 0
 
-    print(grid)
+    
 
     while run:
+        print("grid:",grid)
+        print("")
+        print("__________________________________")
         
         grid = [[BLACK for _ in range(PLAY_WIDTH)] for _ in range(PLAY_HEIGHT)]
         fall_time += clock.get_rawtime()
