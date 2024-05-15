@@ -158,24 +158,18 @@ def convert_shape_format(piece):
     return positions
 
 # Función para verificar colisión de una pieza
-
 def valid_space(piece, grid, locked):
     accepted_positions = [[(j, i) for j in range(10) if grid[i][j] == BLACK] for i in range(20)]
     accepted_positions = [j for sub in accepted_positions for j in sub]
 
     formatted = convert_shape_format(piece)
-    locked_positions = [(pos[0], pos[1]) for pos in locked.keys()]
-   
 
     for pos in formatted:
-        if pos in locked_positions:  # Verificar si la posición está bloqueada
+        if pos in locked:  # Verifica si la posición está bloqueada
             return False
         if pos not in accepted_positions:
-            
             if pos[1] > -1:
                 return False
-            # Si la posición está fuera del tablero en la dirección hacia abajo
-            # y la pieza intenta moverse más hacia abajo, se considera bloqueada
             elif pos[1] > 19:
                 return False
     return True
@@ -202,7 +196,6 @@ def clear_rows(grid, locked):
                 locked[newKey] = locked.pop(key)
 
     return inc
-
 
 # Función para dibujar el próximo bloque
 def draw_next_shape(shape, screen):
@@ -263,7 +256,6 @@ def main():
     lines = 0
 
     while run:
-        
         grid = [[BLACK for _ in range(PLAY_WIDTH)] for _ in range(PLAY_HEIGHT)]
         fall_time += clock.get_rawtime()
         clock.tick()
@@ -273,7 +265,7 @@ def main():
             fall_speed -= 0.005
             lines = 0
 
-       # Movimiento automático hacia abajo
+        # Movimiento automático hacia abajo
         if fall_time/1000 >= fall_speed:
             fall_time = 0
             # Intenta mover la pieza hacia abajo
@@ -281,15 +273,12 @@ def main():
             # Verifica si la pieza ha llegado al suelo
             if not(valid_space(current_piece, grid, locked)):
                 current_piece.y -= 1
-                
+                # Ajusta la posición de shape_pos
+                shape_pos = convert_shape_format(current_piece)
                 for pos in shape_pos:
                     p = (pos[0], pos[1])
                     locked[p] = current_piece.color
-                    pygame.draw.rect(screen, (255,255,255), (pos[0], pos[1], 100, 100), 8)
-                    print("dibujado en:", pos[0], pos[1])
                 change_piece = True
-
-
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -300,25 +289,21 @@ def main():
                 if event.key == pygame.K_LEFT:
                     current_piece.x -= 1
                     if not(valid_space(current_piece, grid, locked)):
-
                         current_piece.x += 1
 
                 if event.key == pygame.K_RIGHT:
                     current_piece.x += 1
                     if not(valid_space(current_piece, grid, locked)):
-
                         current_piece.x -= 1
 
                 if event.key == pygame.K_DOWN:
                     current_piece.y += 1
                     if not(valid_space(current_piece, grid, locked)):
-
                         current_piece.y -= 1
 
                 if event.key == pygame.K_UP:
                     current_piece.rotation += 1
                     if not(valid_space(current_piece, grid, locked)):
-
                         current_piece.rotation -= 1
 
         shape_pos = convert_shape_format(current_piece)
@@ -332,21 +317,10 @@ def main():
             next_piece = create_piece()
             current_piece  = next_piece
             change_piece = False
-            #score += clear_rows(grid, locked)
-            #6lines += clear_rows(grid, locked)
 
         draw_window(screen, grid)
         draw_next_shape(next_piece, screen)
         pygame.display.update()
-
-        # Condicional de victoria
-        if score >= 100:
-            font = pygame.font.SysFont('arial', 60)
-            label = font.render('YOU WIN!', 1, WHITE)
-            screen.blit(label, (TOP_LEFT_X + PLAY_WIDTH/2 - (label.get_width()/2), TOP_LEFT_Y + PLAY_HEIGHT/2 - (label.get_height()/2)))
-            pygame.display.update()
-            pygame.time.delay(2000)
-            run = False
 
     pygame.display.quit()
 
