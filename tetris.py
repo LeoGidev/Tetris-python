@@ -274,7 +274,10 @@ def main():
        # print("")
         #print("__________________________________")
         
-        grid = [[BLACK for _ in range(PLAY_WIDTH)] for _ in range(PLAY_HEIGHT)]
+        for y in range(PLAY_HEIGHT):
+            for x in range(PLAY_WIDTH):
+                if (x, y) not in locked:
+                    grid[y][x] = BLACK
         fall_time += clock.get_rawtime()
         clock.tick()
 
@@ -361,10 +364,10 @@ def main():
         if a:
             print(a[0])
 
-        #print(grid[19])
-        #print(grid[a[1]])
-        #print(grid[a[2]])
-        #print(grid[a[3]])
+            print(grid[a[0]])
+            print(grid[a[1]])
+            print(grid[a[2]])
+            print(grid[a[3]])
         draw_window(screen, grid)
         draw_next_shape(next_piece, screen)
         pygame.display.update()
