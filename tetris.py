@@ -125,7 +125,28 @@ T = [['.....',
       '..0..',
       '.....']]
 
-SHAPES = [S, Z, I, O, J, L, T]
+Q = [['.....',
+      '..0..',
+      '.0.0.',
+      '.....',
+      '.....'],
+     ['.....',
+      '..0..',
+      '...0.',
+      '..0..',
+      '.....'],
+     ['.....',
+      '.....',
+      '.0.0.',
+      '..0..',
+      '.....'],
+     ['.....',
+      '..0..',
+      '.0...',
+      '..0..',
+      '.....']]
+
+SHAPES = [S, Z, I, O, J, L, T, Q]
 SHAPES_COLORS = [GREEN, RED, CYAN, YELLOW, BLUE, ORANGE, PURPLE]
 
 # Clase para las piezas
@@ -258,7 +279,7 @@ def main():
     next_piece = create_piece()
     clock = pygame.time.Clock()
     fall_time = 0
-    fall_speed = 0.27
+    fall_speed = 1
     score = 0
     lines = 0
     
@@ -349,8 +370,8 @@ def main():
             next_piece = create_piece()
             current_piece  = next_piece
             change_piece = False
-            #score += clear_rows(grid, locked)
-            #6lines += clear_rows(grid, locked)
+            score += clear_rows(grid, locked)
+            lines += clear_rows(grid, locked)
 
         
         draw_window(screen, grid)
