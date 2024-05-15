@@ -304,6 +304,7 @@ def main():
                     a.append=pos[1]
                     b.append=pos[0]
                     n=n+1
+                    print("A:",a[0])
                     
                     print("")
                 change_piece = True
@@ -356,10 +357,10 @@ def main():
             #6lines += clear_rows(grid, locked)
 
 
-        print(grid[a[0]])
-        print(grid[a[1]])
-        print(grid[a[2]])
-        print(grid[a[3]])
+        #print(grid[b[0]])
+        #print(grid[b[1]])
+        #print(grid[b[2]])
+        #print(grid[b[3]])
         draw_window(screen, grid)
         draw_next_shape(next_piece, screen)
         pygame.display.update()
