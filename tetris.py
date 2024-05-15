@@ -261,8 +261,8 @@ def main():
     fall_speed = 0.27
     score = 0
     lines = 0
-    a=[20]
-    b=[10]
+    a=[]
+    b=[]
     n=0
 
     
@@ -301,8 +301,8 @@ def main():
                     # Dibuja la pieza bloqueada en su nueva posición
                     grid[pos[1]][pos[0]]=current_piece.color
                     print(grid[pos[1]])
-                    a[n]=pos[1]
-                    b[n]=pos[0]
+                    a.append=pos[1]
+                    b.append=pos[0]
                     n=n+1
                     
                     print("")
@@ -356,10 +356,10 @@ def main():
             #6lines += clear_rows(grid, locked)
 
 
-        #print(grid[a[0]])
-        #print(grid[a[1]])
-        #print(grid[a[2]])
-        #print(grid[a[3]])
+        print(grid[a[0]])
+        print(grid[a[1]])
+        print(grid[a[2]])
+        print(grid[a[3]])
         draw_window(screen, grid)
         draw_next_shape(next_piece, screen)
         pygame.display.update()
